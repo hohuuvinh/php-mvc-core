@@ -17,7 +17,9 @@
 		<div class="p-0 bg1" style="height: 100vh;width: calc(100% - 320px)">
 			<div class="p-3">
 				<p id="logo-text" class="text-white font-weight-bold float-right" style="font-size: 130%;">POIN OF SALE</p>
+				
 				<div id="back-button" class="btn bg-white float-right" style="display: none;">Back</div>
+				
 				<div class="bg2 float-left" style="width: 350px;height: 50px;display: flex;">
 					<input id="search-input" class="p-2" type="" name="" style="width: calc(100% - 50px);height: 100%;background: none;border: 0;outline: none;color: white">
 					<div class="text-center" style="width: 50px;height: 50px;">
@@ -36,7 +38,7 @@
 				
 			</div>
 			<div id="table-box" class="px-2" >
-				<?php include("./mvc/views/partials/home-table-item.php"); ?> 
+				<!-- <?php include("./mvc/views/partials/home-table-item.php"); ?>  -->
 			</div>
 		</div>
 	</div>

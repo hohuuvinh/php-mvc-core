@@ -7,7 +7,7 @@
 	</div>
 	<div id="voucher-ok" class="float-right text-center text-white" style="display: none;">
 		<p id="text-number" class="mb-0 float-left"></p>
-		<p class="mb-0 float-left">$</p>
+		<p id="icon-money" class="mb-0 float-left">$</p>
 	</div>
 	<div style="clear: both;"></div>
 	<?php

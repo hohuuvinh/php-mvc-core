@@ -18,6 +18,34 @@ $(document).ready(function(){
 		}
 	})
 });
+getTable();
+function getTable(){
+
+	$("#table-box").html('');
+
+	$.ajax({
+		url: './Table/GetTable',
+		type: 'get',
+		dataType : 'json',
+		success: function(data){
+			var table_color;
+			$.each (data, function (key, item){
+				if(item.status == 1){
+					table_color='dot-success';
+				}else {
+					table_color='dot-danger';
+				}
+				var data = `<div class=" p-1 float-left" onclick="GetTable(`+item.id+`)">
+				<div class="table-box bg2 text-center" style="width: 100px;height: 100px;">
+				<p class="text-white mb-0" style="font-size: 360%;">`+item.number+`</p>
+				<i class="fa fa-circle mr-2 `+table_color+` float-right" aria-hidden="true" style="font-size: 75%;margin-top: -4px"></i>
+				</div>
+				</div>`
+				document.getElementById("table-box").innerHTML +=data;
+			});		
+		}
+	});
+}
 
 
 
@@ -88,8 +116,30 @@ $(document).ready(function(){
 function GetTable(id){
 	localStorage.setItem("idTable", JSON.stringify(id));
 	GetOrder();
-}
+	CheckTable();
+	$('#logo-text').hide();
+	$('#back-button').show();
 
+	$('#table-box').hide();
+	$('#product-box').show();
+
+	$('#menu-box').hide();
+	$('#cart-box').show();
+	$('#food-filter').show();
+	$('#drink-filter').show();
+	
+}
+function CheckTable(){
+	var id =JSON.parse(localStorage.getItem('idTable'));
+	$.ajax({
+		url: './Table/CheckTable/'+id,
+		type: 'get',
+		dataType : 'json',
+		success: function(data){
+			console.log(data);
+		}
+	});
+}
 function GetOrder(){
 	var total =0;
 	var table =JSON.parse(localStorage.getItem('idTable'));
@@ -99,7 +149,9 @@ function GetOrder(){
 		type: 'get',
 		dataType : 'json',
 		success: function(data){
+
 			$.each (data, function (key, item){
+
 				total +=item.quanlity*item.price;
 				var data = `<div class="p-2 bg1 mb-2" style="height: 67px;width: 100%">
 				<div class="mr-2 float-left" style="width: 50px;height: 50px;background: green">
@@ -161,16 +213,16 @@ function DeleteOrder(idproduct){
 }
 $(document).ready(function() {
 	$('.table-box').on('click',function(){
-		$('#logo-text').hide();
-		$('#back-button').show();
+		// $('#logo-text').hide();
+		// $('#back-button').show();
 
-		$('#table-box').hide();
-		$('#product-box').show();
+		// $('#table-box').hide();
+		// $('#product-box').show();
 
-		$('#menu-box').hide();
-		$('#cart-box').show();
-		$('#food-filter').show();
-		$('#drink-filter').show();
+		// $('#menu-box').hide();
+		// $('#cart-box').show();
+		// $('#food-filter').show();
+		// $('#drink-filter').show();
 		
 	})
 	$('#back-button').on('click',function(){
@@ -186,5 +238,20 @@ $(document).ready(function() {
 
 		$('#food-filter').hide();
 		$('#drink-filter').hide();
+
+		$("#text-number").text('0');
+		$("#text-number").hide();
+		$("#voucher-text").text('Voucher');
+		$("#voucher-text").show();
+		$("#input-code").hide();
+		$("#add-button").show();
+		$("#submit-button").hide();
+		$("#icon-money").hide();
+		$("#voucher-box").show();
+		$("#input-code").val('');
+		GetOrder();
+		CheckTable();
+		getTable();
+
 	})
 });
