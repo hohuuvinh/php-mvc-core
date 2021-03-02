@@ -29,14 +29,21 @@ function getTable(){
 		dataType : 'json',
 		success: function(data){
 			var table_color;
+			var type_table;
 			$.each (data, function (key, item){
 				if(item.status == 1){
 					table_color='dot-success';
 				}else {
 					table_color='dot-danger';
 				}
+				if(item.type == 1){
+					type_table ='100';
+				}else if(item.type == 2){
+					type_table ='200';
+				}
+				
 				var data = `<div class=" p-1 float-left" onclick="GetTable(`+item.id+`)">
-				<div class="table-box bg2 text-center" style="width: 100px;height: 100px;">
+				<div class="table-box bg2 text-center" style="width: `+type_table+`px;height: 100px;">
 				<p class="text-white mb-0" style="font-size: 360%;">`+item.number+`</p>
 				<i class="fa fa-circle mr-2 `+table_color+` float-right" aria-hidden="true" style="font-size: 75%;margin-top: -4px"></i>
 				</div>
@@ -127,8 +134,10 @@ function GetTable(id){
 	$('#cart-box').show();
 	$('#food-filter').show();
 	$('#drink-filter').show();
-	
+	$("#link-checkout").attr("href", "./Checkout/Index/"+id)
+
 }
+
 function CheckTable(){
 	var id =JSON.parse(localStorage.getItem('idTable'));
 	$.ajax({
@@ -184,6 +193,11 @@ function GetOrder(){
 			var fee2 = $('#SER-text').text();
 			var voucher = $('#text-number').text();
 			total = total*(100 - discount)/100 + total*fee1/100 + total*fee2/100 - voucher;
+			localStorage.setItem("total", JSON.stringify(parseInt(total)));
+			localStorage.setItem("fee1", JSON.stringify(parseInt(fee1)));
+			localStorage.setItem("fee2", JSON.stringify(parseInt(fee2)));
+			localStorage.setItem("sale", JSON.stringify(parseInt(discount)));
+			localStorage.setItem("voucher", JSON.stringify(parseInt(voucher)));
 			$('#total-text').text(parseInt(total)+"$");
 		}
 	});
@@ -212,19 +226,7 @@ function DeleteOrder(idproduct){
 	})
 }
 $(document).ready(function() {
-	$('.table-box').on('click',function(){
-		// $('#logo-text').hide();
-		// $('#back-button').show();
 
-		// $('#table-box').hide();
-		// $('#product-box').show();
-
-		// $('#menu-box').hide();
-		// $('#cart-box').show();
-		// $('#food-filter').show();
-		// $('#drink-filter').show();
-		
-	})
 	$('#back-button').on('click',function(){
 		getProduct(0);
 		$('#logo-text').show();

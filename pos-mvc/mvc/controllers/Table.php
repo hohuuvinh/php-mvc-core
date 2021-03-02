@@ -15,5 +15,11 @@ class Table extends Controller{
 		echo $CheckTable;
 	}
 
+	function ResetTable($idtable){
+		$GetModel= $this->model("tbl_table");
+		$CheckTable = $GetModel ->ResetTable($idtable);
+		echo "ok";
+	}
+
 }
 ?>

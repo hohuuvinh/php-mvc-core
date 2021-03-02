@@ -42,6 +42,12 @@ class tbl_order extends DB{
 		$qr ="DELETE FROM tbl_order WHERE tbl_order.idtable='$idtable' AND tbl_order.idproduct='$idproduct'";
 		return mysqli_query($this->con, $qr);
 	}
+
+
+	public function GetOrderCheckout($idtable){
+		$qr = "SELECT tbl_product.name,tbl_product.price,tbl_order.quanlity,tbl_order.idproduct FROM tbl_order,tbl_product,tbl_table WHERE tbl_order.idproduct = tbl_product.id AND tbl_order.idtable = tbl_table.id and tbl_order.idtable='$idtable' ORDER BY tbl_order.id ASC";
+		return mysqli_query($this->con, $qr);
+	}
 	
 }
 ?>

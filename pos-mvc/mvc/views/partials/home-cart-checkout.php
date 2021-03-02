@@ -33,6 +33,9 @@
 	<p class="text-white float-left mb-1" style="font-size: 130%">Total</p>
 	<p id="total-text" class="text-white float-right mb-1" style="font-size: 130%"></p>
 	<div style="clear: both;"></div>
-	<div class="btn bg-white" style="width: 100%;border-radius: 0;">Checkout</div>
+	<a id="link-checkout" href="">
+		<div class="btn bg-white" style="width: 100%;border-radius: 0;">Checkout</div>
+	</a>
 </div>
+
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2021 at 12:55 PM
+-- Generation Time: Mar 02, 2021 at 03:35 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -79,28 +79,56 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `idproduct`, `idtable`, `quanlity`, `created_at`) VALUES
-(20, 1, 9, 5, NULL),
-(21, 5, 9, 3, NULL),
-(42, 3, 8, 2, NULL),
+(42, 3, 8, 3, NULL),
 (43, 2, 8, 1, NULL),
-(177, 5, 2, 2, NULL),
-(178, 1, 2, 1, NULL),
-(179, 4, 2, 3, NULL),
-(192, 5, 4, 1, NULL),
-(193, 1, 4, 1, NULL),
-(194, 4, 4, 1, NULL),
-(200, 4, 7, 1, NULL),
-(201, 1, 7, 1, NULL),
-(204, 5, 10, 2, NULL),
-(205, 1, 10, 1, NULL),
+(204, 5, 10, 4, NULL),
+(205, 1, 10, 3, NULL),
 (211, 5, 11, 1, NULL),
-(212, 1, 11, 1, NULL),
+(212, 1, 11, 6, NULL),
 (213, 4, 11, 1, NULL),
-(217, 5, 12, 1, NULL),
-(218, 1, 12, 1, NULL),
-(223, 5, 3, 1, NULL),
-(224, 1, 3, 1, NULL),
-(225, 4, 3, 1, NULL);
+(232, 4, 5, 1, NULL),
+(233, 1, 5, 4, NULL),
+(269, 1, 7, 1, NULL),
+(270, 4, 7, 1, NULL),
+(271, 5, 6, 1, NULL),
+(272, 1, 6, 1, NULL),
+(273, 4, 6, 2, NULL),
+(274, 5, 8, 1, NULL),
+(275, 1, 8, 1, NULL),
+(276, 4, 10, 3, NULL),
+(282, 3, 10, 1, NULL),
+(287, 5, 12, 1, NULL),
+(297, 3, 12, 1, NULL),
+(304, 5, 4, 1, NULL),
+(305, 1, 4, 1, NULL),
+(306, 4, 4, 2, NULL),
+(307, 5, 2, 1, NULL),
+(308, 1, 2, 1, NULL),
+(309, 3, 9, 1, NULL),
+(310, 4, 9, 1, NULL),
+(311, 2, 9, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_payment`
+--
+
+CREATE TABLE `tbl_payment` (
+  `id` int(11) NOT NULL,
+  `content` text DEFAULT NULL,
+  `idadmin` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_payment`
+--
+
+INSERT INTO `tbl_payment` (`id`, `content`, `idadmin`, `created_at`) VALUES
+(1, 'ffgfg', 2, '2021-03-01 18:44:58'),
+(2, '\n					<thead>\n						<tr>\n							<th scope=\"col\">#</th>\n							<th scope=\"col\">Name</th>\n							<th scope=\"col\">Qty</th>\n							<th scope=\"col\">Price</th>\n						</tr>\n					</thead>\n					<tbody>\n						\n					</tbody>\n					<thead>\n						<tr>\n							<th scope=\"col\">Fee</th>\n							<th scope=\"col\">Sale</th>\n							<th scope=\"col\">Voucher</th>\n							<th scope=\"col\">Total</th>\n						</tr>\n					</thead>\n					<tbody>					\n						<tr>\n							<td id=\"fee\">20%</td>\n							<td id=\"sale\">20%</td>\n							<td id=\"voucher\">0</td>\n							<td id=\"total\">103$</td>\n						</tr>\n					</tbody>\n				', 1, '2021-03-01 18:53:48'),
+(3, '\n					<thead>\n						<tr>\n							<th scope=\"col\">#</th>\n							<th scope=\"col\">Name</th>\n							<th scope=\"col\">Qty</th>\n							<th scope=\"col\">Price</th>\n						</tr>\n					</thead>\n					<tbody>\n						<tr>\n							<th scope=\"row\">1</th>\n							<td>Hamburger</td>\n							<td>2</td>\n							<td>10$</td>\n							</tr><tr>\n							<th scope=\"row\">2</th>\n							<td>Chicken</td>\n							<td>1</td>\n							<td>19$</td>\n							</tr>\n					</tbody>\n					<thead>\n						<tr>\n							<th scope=\"col\">Fee</th>\n							<th scope=\"col\">Sale</th>\n							<th scope=\"col\">Voucher</th>\n							<th scope=\"col\">Total</th>\n						</tr>\n					</thead>\n					<tbody>					\n						<tr>\n							<td id=\"fee\">20%</td>\n							<td id=\"sale\">20%</td>\n							<td id=\"voucher\">0$</td>\n							<td id=\"total\">28$</td>\n						</tr>\n					</tbody>\n				', 1, '2021-03-01 19:14:14');
 
 -- --------------------------------------------------------
 
@@ -150,19 +178,19 @@ CREATE TABLE `tbl_table` (
 --
 
 INSERT INTO `tbl_table` (`id`, `number`, `type`, `customer`, `status`, `created_at`) VALUES
-(1, 1, 1, 4, 3, '2021-02-27 17:01:29'),
-(2, 2, 1, 4, 1, '2021-02-27 17:01:29'),
+(1, 1, 1, 4, 1, '2021-02-27 17:01:29'),
+(2, 2, 1, 4, 3, '2021-02-27 17:01:29'),
 (3, 3, 1, 4, 1, '2021-02-19 17:01:56'),
-(4, 4, 1, 4, 1, '0000-00-00 00:00:00'),
-(5, 5, 1, 4, 1, '0000-00-00 00:00:00'),
-(6, 6, 1, 4, 1, '0000-00-00 00:00:00'),
+(4, 4, 1, 4, 3, '0000-00-00 00:00:00'),
+(5, 5, 1, 4, 3, '0000-00-00 00:00:00'),
+(6, 6, 1, 4, 3, '0000-00-00 00:00:00'),
 (7, 7, 1, 4, 3, '0000-00-00 00:00:00'),
-(8, 8, 1, 4, 1, '0000-00-00 00:00:00'),
-(9, 9, 1, 4, 1, '0000-00-00 00:00:00'),
-(10, 10, 1, 4, 1, '0000-00-00 00:00:00'),
-(11, 11, 1, 4, 1, '0000-00-00 00:00:00'),
+(8, 8, 1, 4, 3, '0000-00-00 00:00:00'),
+(9, 9, 1, 4, 3, '0000-00-00 00:00:00'),
+(10, 10, 1, 4, 3, '0000-00-00 00:00:00'),
+(11, 11, 1, 4, 3, '0000-00-00 00:00:00'),
 (12, 12, 2, 10, 3, '0000-00-00 00:00:00'),
-(13, 13, 2, 10, 3, '0000-00-00 00:00:00');
+(13, 13, 2, 10, 1, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -208,6 +236,12 @@ ALTER TABLE `tbl_order`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_payment`
+--
+ALTER TABLE `tbl_payment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
@@ -245,7 +279,13 @@ ALTER TABLE `tbl_fee`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=312;
+
+--
+-- AUTO_INCREMENT for table `tbl_payment`
+--
+ALTER TABLE `tbl_payment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`

@@ -25,6 +25,18 @@ class tbl_table extends DB{
 		}
 		return $count;
 	}
+
+
+	public function ResetTable($idtable){
+
+		$qr = "UPDATE tbl_table SET tbl_table.status=1 WHERE tbl_table.id='$idtable'";
+		mysqli_query($this->con, $qr);
+
+		$qr1 = "DELETE FROM tbl_order WHERE tbl_order.idtable=$idtable";
+		mysqli_query($this->con, $qr1);
+	}
+
+
 	
 }
 ?>

@@ -20,12 +20,13 @@
 				
 				<div id="back-button" class="btn bg-white float-right" style="display: none;">Back</div>
 				
-				<div class="bg2 float-left" style="width: 350px;height: 50px;display: flex;">
+				<div id="box-search-product" class="bg2 float-left" style="width: 350px;height: 50px;display: flex;">
 					<input id="search-input" class="p-2" type="" name="" style="width: calc(100% - 50px);height: 100%;background: none;border: 0;outline: none;color: white">
 					<div class="text-center" style="width: 50px;height: 50px;">
 						<i class="fa fa-search text-white" aria-hidden="true" style="font-size: 130%;line-height: 48px;opacity: 0.8"></i>
 					</div>
 				</div>
+				
 				<div id="food-filter" class="bg2 ml-2 float-left text-center" style="width: 100px;height: 50px;display: none;">
 					<p class="text-white" style="line-height: 49px">Food</p>
 				</div>
