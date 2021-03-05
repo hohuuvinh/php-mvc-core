@@ -39,7 +39,7 @@
 				
 			</div>
 			<div id="table-box" class="px-2" >
-				<!-- <?php include("./mvc/views/partials/home-table-item.php"); ?>  -->
+				
 			</div>
 		</div>
 	</div>

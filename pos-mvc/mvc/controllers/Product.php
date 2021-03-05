@@ -9,5 +9,93 @@ class Product extends Controller{
 		echo $GetProduct;
 	}
 
+	function ProductsManage(){
+		$GetModel= $this->model("tbl_product");
+		$ProductsManage = $GetModel ->ProductsManage();
+		$this->view("master",["Page"=>"products","ProductsManage"=>$ProductsManage]);
+	}
+
+	function EditProduct(){
+		$this->view("master",["Page"=>"edit-product"]);
+	}
+
+	function GetAddProduct(){
+		$this->view("master",["Page"=>"add-product"]);
+	}
+
+	function SetAddProduct(){
+
+		$name = $_POST["name"];
+		$price = $_POST["price"];
+		$type = $_POST["type"];
+		$image='';
+		$tmpFilePath = $_FILES['upload']['tmp_name'];
+
+		if($name== null){
+			$this->view("master",["Page"=>"add-product","status"=>"Please enter your full information"]);
+		}else if($price== null){
+			$this->view("master",["Page"=>"add-product","status"=>"Please enter your full information"]);
+		}else if($tmpFilePath == null){
+			$this->view("master",["Page"=>"add-product","status"=>"Please enter your full information"]);
+		}else{
+			$image .=date("h").date("i").date("sa").$_FILES['upload']['name'];
+			if ($tmpFilePath != ""){
+				$newFilePath = "./public/images/product/" .date("h").date("i").date("sa").$_FILES['upload']['name'];
+				if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+				}
+			}
+
+			$GetModel= $this->model("tbl_product");
+			$AddProduct = $GetModel->AddProduct($name,$price,$type,$image);	
+			header( "Location: ../Product/ProductsManage" );
+		}
+
+	}
+
+
+	function DeleteProduct($id){
+		$GetModel= $this->model("tbl_product");
+		$DeleteProduct = $GetModel ->DeleteProduct($id);
+		header( "Location: ../../Product/ProductsManage" );
+	}
+	
+	function GetEditProduct($id){
+		$GetModel= $this->model("tbl_product");
+		$EditProduct = $GetModel ->GetEditProduct($id);
+
+		$this->view("master",["Page"=>"edit-product","product"=>$EditProduct]);
+	}
+
+	function SetEditProduct(){
+		$id = $_POST["idproduct"];
+		$name = $_POST["name"];
+		$price = $_POST["price"];
+		$type = $_POST["type"];
+		$image='';
+		$tmpFilePath = $_FILES['upload']['tmp_name'];
+		if($name== null){
+			header( "Location: ../Product/GetEditProduct/1" );
+		}else if($price== null){
+			header( "Location: ../Product/GetEditProduct/1" );
+		}else if($tmpFilePath==null){
+			$image=1;
+			$GetModel= $this->model("tbl_product");
+			$EditProduct = $GetModel->SetEditProduct($id,$name,$price,$type,$image);	
+			header( "Location: ../Product/ProductsManage" );
+		}else{
+			$image .=date("h").date("i").date("sa").$_FILES['upload']['name'];
+			if ($tmpFilePath != ""){
+				$newFilePath = "./public/images/product/" .date("h").date("i").date("sa").$_FILES['upload']['name'];
+				if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+				}
+			}
+			$GetModel= $this->model("tbl_product");
+			$EditProduct = $GetModel->SetEditProduct($id,$name,$price,$type,$image);	
+			header( "Location: ../Product/ProductsManage" );
+		}
+	}
+
 }
+
+
 ?>

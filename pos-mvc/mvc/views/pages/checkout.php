@@ -5,8 +5,9 @@
 			
 			
 			<div class="row m-0">
+				
 				<?php include("./mvc/views/partials/home-menu-account.php"); ?> 
-				<?php include("./mvc/views/partials/home-menu-item.php"); ?> 
+				<?php include("./mvc/views/partials/home-menu-item.php"); ?>
 			</div>
 		</div>
 		<div class="p-0 bg1" style="height: 100vh;width: calc(100% - 320px)">
@@ -187,20 +188,20 @@
 	})
 
 	function FinishCheckout(){
-		var id =JSON.parse(localStorage.getItem('idTable'));
-		$.ajax({
-			url: '../../Table/ResetTable/'+id,
-			type: 'get',
-			dataType : 'json',
-			success: function(data){
-				console.log(data);
-			}
-		});
+		// var id =JSON.parse(localStorage.getItem('idTable'));
+		// $.ajax({
+		// 	url: '../../Table/ResetTable/'+id,
+		// 	type: 'get',
+		// 	dataType : 'json',
+		// 	success: function(data){
+		// 		console.log(data);
+		// 	}
+		// });
 		var getHtmlTable = $("#get-html-table").html();
 		$.post("../../Checkout/AddCheckout/",{content:getHtmlTable},function(data){	
 			console.log(getHtmlTable);
 		}) 
 
-		window.location.href = "../../Home";
+		// window.location.href = "../../Home";
 	}
 </script>
