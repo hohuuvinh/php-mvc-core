@@ -10,9 +10,11 @@ class Product extends Controller{
 	}
 
 	function ProductsManage(){
+		$GetModel= $this->model("tbl_theme");
+		$GetTheme = $GetModel ->GetTheme();
 		$GetModel= $this->model("tbl_product");
 		$ProductsManage = $GetModel ->ProductsManage();
-		$this->view("master",["Page"=>"products","ProductsManage"=>$ProductsManage]);
+		$this->view("master",["Page"=>"products","ProductsManage"=>$ProductsManage,"GetTheme"=>$GetTheme]);
 	}
 
 	function EditProduct(){
@@ -20,7 +22,9 @@ class Product extends Controller{
 	}
 
 	function GetAddProduct(){
-		$this->view("master",["Page"=>"add-product"]);
+		$GetModel= $this->model("tbl_theme");
+		$GetTheme = $GetModel ->GetTheme();
+		$this->view("master",["Page"=>"add-product","GetTheme"=>$GetTheme]);
 	}
 
 	function SetAddProduct(){
@@ -60,10 +64,13 @@ class Product extends Controller{
 	}
 	
 	function GetEditProduct($id){
+		$GetModel= $this->model("tbl_theme");
+		$GetTheme = $GetModel ->GetTheme();
+		
 		$GetModel= $this->model("tbl_product");
 		$EditProduct = $GetModel ->GetEditProduct($id);
 
-		$this->view("master",["Page"=>"edit-product","product"=>$EditProduct]);
+		$this->view("master",["Page"=>"edit-product","product"=>$EditProduct,"GetTheme"=>$GetTheme]);
 	}
 
 	function SetEditProduct(){

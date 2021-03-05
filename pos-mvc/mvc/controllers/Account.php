@@ -4,7 +4,9 @@
 
 class Account extends Controller{
 	function Index(){
-		$this->view("master",["Page"=>"account"]);
+		$GetModel= $this->model("tbl_theme");
+		$GetTheme = $GetModel ->GetTheme();
+		$this->view("master",["Page"=>"account","GetTheme"=>$GetTheme]);
 	}
 
 	function ChangePass(){

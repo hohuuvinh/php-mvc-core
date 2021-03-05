@@ -2,6 +2,8 @@
 
 class Checkout extends Controller{
 	function Index($idtable){
+		$GetModel= $this->model("tbl_theme");
+		$GetTheme = $GetModel ->GetTheme();
 		$GetOrderCheckoutModel= $this->model("tbl_order");
 		$GetOrderCheckout = $GetOrderCheckoutModel ->GetOrderCheckout($idtable);
 
@@ -9,7 +11,7 @@ class Checkout extends Controller{
 		$GetFee = $GetFee ->GetFee();
 		$GetDiscount= $this->model("tbl_discount");
 		$GetDiscount = $GetDiscount ->GetDiscount();
-		$this->view("master",["Page"=>"checkout","fee"=>$GetFee,"discount"=>$GetDiscount,"GetOrderCheckout"=>$GetOrderCheckout]);
+		$this->view("master",["Page"=>"checkout","fee"=>$GetFee,"discount"=>$GetDiscount,"GetOrderCheckout"=>$GetOrderCheckout,"GetTheme"=>$GetTheme]);
 	}
 
 	function AddCheckout(){

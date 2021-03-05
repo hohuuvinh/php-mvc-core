@@ -9,5 +9,22 @@ class tbl_voucher extends DB{
 		}
 		echo json_encode($Voucher);
 	}
+
+	public function Voucher(){
+		$qr = "SELECT * FROM tbl_voucher";
+		return mysqli_query($this->con, $qr);
+	}
+
+	public function DeleteVoucher($id){
+		$qr ="DELETE FROM tbl_voucher WHERE id=$id";
+		mysqli_query($this->con, $qr);
+	}
+
+	public function AddVoucher($code,$price){
+		$qr = "INSERT INTO tbl_voucher (code,number)
+		VALUES ('$code','$price')";
+		mysqli_query($this->con, $qr);
+		echo "ok";
+	}
 }
 ?>

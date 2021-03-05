@@ -4,10 +4,12 @@
 
 class Analitics extends Controller{
 	function Index($type){
+		$GetModel= $this->model("tbl_theme");
+		$GetTheme = $GetModel ->GetTheme();
 		$GetAnaliticsModel= $this->model("tbl_payment");
 		$GetAnalitics = $GetAnaliticsModel ->GetAnalitics($type);
 
-		$this->view("master",["Page"=>"analitics","GetAnalitics"=>$GetAnalitics]);
+		$this->view("master",["Page"=>"analitics","GetAnalitics"=>$GetAnalitics,"GetTheme"=>$GetTheme]);
 	}
 }
 ?>

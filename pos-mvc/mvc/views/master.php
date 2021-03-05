@@ -17,15 +17,7 @@
     <title></title>
 </head>
 <style type="text/css">
-    .bg1{
-        background: #121421;
-    }
-    .bg2{
-        background: #1e202c;
-    }
-    .bg3{
-        background: #292b37;
-    }
+ 
     .dot-pending{
         color: #f8ca30;
     }
@@ -40,7 +32,7 @@
     }
 </style>
 <body>
- <?php require_once "./mvc/views/pages/".$data["Page"].".php" ?>
+   <?php require_once "./mvc/views/pages/".$data["Page"].".php" ?>
 </body>
 <script
 src="https://code.jquery.com/jquery-3.5.1.js"

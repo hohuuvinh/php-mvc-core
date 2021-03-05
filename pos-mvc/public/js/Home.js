@@ -44,7 +44,7 @@ function getTable(){
 				
 				var data = `<div class=" p-1 float-left" onclick="GetTable(`+item.id+`)">
 				<div class="table-box bg2 text-center" style="width: `+type_table+`px;height: 100px;">
-				<p class="text-white mb-0" style="font-size: 360%;">`+item.number+`</p>
+				<p class="cl mb-0" style="font-size: 360%;">`+item.number+`</p>
 				<i class="fa fa-circle mr-2 `+table_color+` float-right" aria-hidden="true" style="font-size: 75%;margin-top: -4px"></i>
 				</div>
 				</div>`
@@ -69,8 +69,8 @@ function getProduct(type){
 				<div class="float-left" style="width: 90px;height: 100%;background: green">
 				<img src="./public/images/product/`+item.image+`" width="100%" height="100%">
 				</div>
-				<p class="text-white mb-0 mt-2" style="height: 45px;overflow-y: hidden;">`+item.name+`</p>
-				<p class="text-white">`+item.price+`$</p>
+				<p class="cl mb-0 mt-2" style="height: 45px;overflow-y: hidden;">`+item.name+`</p>
+				<p class="cl">`+item.price+`$</p>
 				</div>
 				</div>`
 				document.getElementById("product-box").innerHTML +=data;
@@ -167,22 +167,22 @@ function GetOrder(){
 				<img src="./public/images/product/`+item.image+`" width="100%" height="100%">
 				</div>
 				<div class="float-left">
-				<p class="text-white mb-1" style="width: 110px;overflow-y: hidden;height: 22px;">`+item.name+`</p>
+				<p class="cl mb-1" style="width: 110px;overflow-y: hidden;height: 22px;">`+item.name+`</p>
 				<div style="display: flex;">
-				<div onclick="UpQuanlity(`+item.idproduct+`)" class="bg3 text-white text-center" style="width: 20px;height: 20px;font-size: 80%">
+				<div onclick="UpQuanlity(`+item.idproduct+`)" class="bg3 cl text-center" style="width: 20px;height: 20px;font-size: 80%">
 				+
 				</div>
-				<div id="product-quanlity`+item.idproduct+`" class="text-center text-white" style="width: 20px;height: 20px;font-size: 80%">`+item.quanlity+`</div>
-				<div class="bg3 text-white text-center" style="width: 20px;height: 20px;font-size: 80%" onclick="DowQuanlity(`+item.idproduct+`)">
+				<div id="product-quanlity`+item.idproduct+`" class="text-center cl" style="width: 20px;height: 20px;font-size: 80%">`+item.quanlity+`</div>
+				<div class="bg3 cl text-center" style="width: 20px;height: 20px;font-size: 80%" onclick="DowQuanlity(`+item.idproduct+`)">
 				-
 				</div>
 				</div>
 				</div>
 				<div class="float-right" style="height: 50px;width: 120px">
 				<div class="float-right bg3 text-center" style="width: 20px;height: 100%" onclick="DeleteOrder(`+item.idproduct+`)">
-				<p class="text-white" style="line-height: 50px">x</p>
+				<p class="cl" style="line-height: 50px">x</p>
 				</div>
-				<p class="float-right font-weight-bold text-white mr-2" style="font-size: 130%;line-height: 50px">`+item.quanlity*item.price+`$</p>
+				<p class="float-right font-weight-bold cl mr-2" style="font-size: 130%;line-height: 50px">`+item.quanlity*item.price+`$</p>
 				</div>
 				<div style="clear: both;"></div>
 				</div>`

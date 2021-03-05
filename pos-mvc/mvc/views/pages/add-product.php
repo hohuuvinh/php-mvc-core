@@ -1,3 +1,4 @@
+<?php include("./mvc/views/partials/theme.php"); ?> 
 <div class="container-fluid p-0">
 	<div class="row m-0">
 		<div class="p-2 bg2" style="height: 100vh;width: 320px;">

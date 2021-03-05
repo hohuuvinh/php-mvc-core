@@ -1,7 +1,8 @@
+<?php include("./mvc/views/partials/theme.php"); ?> 
 <div class="container-fluid p-0">
 	<div class="row m-0">
 		<div class="p-2 bg2" style="height: 100vh;width: 320px;">
-			<p class="ml-1 font-weight-bold text-white" style="font-size: 130%">MANAGE</p>
+			<p class="ml-1 font-weight-bold cl" style="font-size: 130%">MANAGE</p>
 			<div class="row m-0">
 				<?php include("./mvc/views/partials/home-menu-account.php"); ?> 
 				<?php include("./mvc/views/partials/home-menu-item.php"); ?>
@@ -9,14 +10,14 @@
 		</div>
 		<div class="p-0 bg1" style="height: 100vh;width: calc(100% - 320px)">
 			<div class="p-3">
-				<p class="float-left text-white font-weight-bold mb-0" style="font-size: 130%">Checkout</p>
+				<p class="float-left cl font-weight-bold mb-0" style="font-size: 130%">Checkout</p>
 				<a href="../../Home" style="text-decoration: none;color:black;">
 					<div id="back-button" class="btn bg-white float-right">Back</div>
 				</a>
 				<div style="clear: both;"></div>
 			</div>
 			<div style="height: calc(100vh - 120px);overflow-y: auto;">
-				<div class="py-2 px-4 text-white bg2" style="width: 500px;margin: auto">
+				<div class="py-2 px-4 cl bg2" style="width: 500px;margin: auto">
 					<form action="../SetEditProduct" method="post" enctype='multipart/form-data'>	
 						<?php
 						$selectType;

@@ -1,7 +1,8 @@
+<?php include("./mvc/views/partials/theme.php"); ?> 
 <div id="checkout-box" class="container-fluid p-0">
 	<div class="row m-0">
 		<div class="p-2 bg2" style="height: 100vh;width: 320px;">
-			<p class="ml-1 font-weight-bold text-white" style="font-size: 130%">MANAGE</p>
+			<p class="ml-1 font-weight-bold cl" style="font-size: 130%">MANAGE</p>
 			
 			
 			<div class="row m-0">
@@ -13,7 +14,7 @@
 		<div class="p-0 bg1" style="height: 100vh;width: calc(100% - 320px)">
 
 			<div class="p-3">
-				<p class="float-left text-white font-weight-bold mb-0" style="font-size: 130%">Checkout</p>
+				<p class="float-left cl font-weight-bold mb-0" style="font-size: 130%">Checkout</p>
 				<a href="../../Home">
 					<div id="back-button" class="btn bg-white float-right">Back</div>
 				</a>
@@ -22,7 +23,7 @@
 
 
 			<div class="px-2" style="width: 800px;height: 300px;margin: auto">
-				<table id="get-html-table" class="table bg2 text-white">
+				<table id="get-html-table" class="table bg2 cl">
 					<thead>
 						<tr>
 							<th scope="col">#</th>
@@ -67,7 +68,7 @@
 					<div class="float-left bg2" style="width: 47%;height: 50px;display: flex;">
 						<input id="received" class="pl-3" type="number" name="" style="width: 100%;height: 100%;background: none;border: 0;outline: none;color: white" placeholder="Received">
 						<div class="text-center" style="width: 50px;height: 50px;">
-							<i class="fa fa-money text-white" aria-hidden="true" style="line-height: 50px;font-size: 130%"></i>
+							<i class="fa fa-money cl" aria-hidden="true" style="line-height: 50px;font-size: 130%"></i>
 						</div>
 					</div>
 					
@@ -81,8 +82,8 @@
 					<div style="clear: both;"></div>
 					
 					<div id="finish-button" style="display: none;">
-						<div  onclick="FinishCheckout()" class="btn bg2 text-white mt-4 float-left" style="width: 78%;">Finish</div>
-						<div  class="js-print-link btn bg2 text-white mt-4 float-right" style="width: 20%;"><i class="fa fa-print text-white" aria-hidden="true" style="font-size: 130%"></i>						
+						<div  onclick="FinishCheckout()" class="btn bg2 cl mt-4 float-left" style="width: 78%;">Finish</div>
+						<div  class="js-print-link btn bg2 cl mt-4 float-right" style="width: 20%;"><i class="fa fa-print cl" aria-hidden="true" style="font-size: 130%"></i>						
 						</div>
 					</div>								
 				</div>
