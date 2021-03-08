@@ -20,5 +20,15 @@ class tbl_account extends DB{
 		}
 		return $kq;
 	}
+
+	public function CheckLogin($username,$passwordHash){
+		$qr = "SELECT * FROM tbl_account WHERE tbl_account.username='$username' AND tbl_account.password='$passwordHash'";
+		$rows = mysqli_query($this->con, $qr);
+		$kq=1;
+		if(mysqli_num_rows($rows)>0){
+			$kq=2;
+		}
+		return $kq;
+	}
 }
 ?>

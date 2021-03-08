@@ -105,6 +105,96 @@
 							</div>
 
 
+							<div class="col-12 p-2">
+								<div class="p-2 cl bg2">
+									<p class="text-center" style="font-size: 130%">Table</p>
+									<div style="clear: both;"></div>
+									<div class="row m-0">
+										<table class="table bg2 cl">
+											<thead>
+												<tr>
+													<th scope="col">Code</th>
+													<th scope="col">Type</th>
+													<th scope="col">Method</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php
+												$typeText;
+												foreach ($data["Table"] as $value) {
+													if($value["type"]==1){
+														$typeText="Normal";
+													}else{
+														$typeText="Vip";
+													}
+													echo '<tr>
+													<td>'.$value["number"].'</td>
+													<td>'.$typeText.'</td>
+													<td>
+													<div class="btn bg-white text-dark float-left mr-2" onclick="EditTable('.$value["id"].','.$value["number"].','.$value["type"].')">Edit</div>
+													<a href="../Table/DeleteTable/'.$value["id"].'" 
+													style="text-decoration: none;color:black;">
+													<div class="btn bg-white text-dark float-left">Delete</div>
+													</a>
+													</td>';
+												}
+												?>
+											</tbody>
+										</table>
+									</div>
+									<form id="form-edit-table" action="../Table/EditTable" method="post" style="display: none;">
+										<div style="display: flex;">
+											<input id="idTable"  type="" name="idTable" style="display: none;">
+											<div class="px-2" style="width: 30%">
+												<label>Number</label><br>
+												<input id="numberTable" type="" class="form-control" name="numberTable">
+											</div>
+											<div  class="px-2" style="width: 30%">
+												<label>Type</label><br>
+												<select id="typeTable" class="form-control" name="typeTable">
+													<option value="1">Normal</option>
+													<option value="2">Vip</option>
+												</select>
+											</div>
+											<div  class="px-2" style="width: 30%">
+												<button type="submit" class="btn" style="margin-top: 32px">Edit Table</button>
+											</div>
+										</div>									
+									</form>
+									<form id="form-add-table" action="../Table/AddTable" method="post">
+										<div style="display: flex;">
+											
+											<div class="px-2" style="width: 30%">
+												<label>Number</label><br>
+												<input type="" class="form-control" name="numberTable">
+											</div>
+											<div  class="px-2" style="width: 30%">
+												<label>Type</label><br>
+												<select class="form-control" name="typeTable">
+													<option value="1">Normal</option>
+													<option value="2">Vip</option>
+												</select>
+											</div>
+											<div  class="px-2" style="width: 30%">
+												<button type="submit" class="btn" style="margin-top: 32px">Add Table</button>
+											</div>
+										</div>									
+									</form>
+								</div>
+							</div>
+
+							<script type="text/javascript">
+								function EditTable(id,number,type){
+									$("#form-add-table").hide();
+									$("#form-edit-table").show();
+									$("#numberTable").val(number);
+									$("#typeTable").val(type);
+									$("#idTable").val(id);
+									
+								}
+							</script>
+
+
 						</div>
 					</div>
 					<div class="col-6 p-2">
@@ -247,4 +337,6 @@
 		$("#nameDiscount").val(name);
 		$("#priceDiscount").val(price);
 	}
+
+
 </script>

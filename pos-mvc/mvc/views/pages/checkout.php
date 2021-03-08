@@ -33,14 +33,15 @@
 						</tr>
 					</thead>
 					<tbody>
+						
 						<?php
 						$stt=1;
-						while($row = mysqli_fetch_array($data["GetOrderCheckout"])){
+						foreach ($data["GetOrderCheckout"] as $value) {
 							echo '<tr>
 							<th scope="row">'.$stt++.'</th>
-							<td>'.$row["name"].'</td>
-							<td>'.$row["quanlity"].'</td>
-							<td>'.$row["price"]*$row["quanlity"].'$</td>
+							<td>'.$value["name"].'</td>
+							<td>'.$value["quanlity"].'</td>
+							<td>'.$value["price"]*$value["quanlity"].'$</td>
 							</tr>';
 						}
 						?>
@@ -82,7 +83,7 @@
 					<div style="clear: both;"></div>
 					
 					<div id="finish-button" style="display: none;">
-						<div  onclick="FinishCheckout()" class="btn bg2 cl mt-4 float-left" style="width: 78%;">Finish</div>
+						<div id="FinishCheckout" class="btn bg2 cl mt-4 float-left" style="width: 78%;">Finish</div>
 						<div  class="js-print-link btn bg2 cl mt-4 float-right" style="width: 20%;"><i class="fa fa-print cl" aria-hidden="true" style="font-size: 130%"></i>						
 						</div>
 					</div>								
@@ -140,7 +141,6 @@
 	<div style="clear: both;"></div>
 </div>
 
-
 <script type="text/javascript">
 	$('.js-print-link').on('click', function () {
 		$("#checkout-box").hide();
@@ -188,21 +188,24 @@
 		}
 	})
 
-	function FinishCheckout(){
-		// var id =JSON.parse(localStorage.getItem('idTable'));
-		// $.ajax({
-		// 	url: '../../Table/ResetTable/'+id,
-		// 	type: 'get',
-		// 	dataType : 'json',
-		// 	success: function(data){
-		// 		console.log(data);
-		// 	}
-		// });
-		var getHtmlTable = $("#get-html-table").html();
-		$.post("../../Checkout/AddCheckout/",{content:getHtmlTable},function(data){	
-			console.log(getHtmlTable);
-		}) 
-
-		// window.location.href = "../../Home";
-	}
+	$(document).ready(function(){
+		var id =JSON.parse(localStorage.getItem('idTable'));
+		$.ajax({
+			url: '../../Table/ResetTable/'+id,
+			type: 'get',
+			dataType : 'json',
+			success: function(data){
+				
+			}
+		});
+		$("#FinishCheckout").on('click',function(){
+			
+			
+			var getHtmlTable = $("#get-html-table").html();
+			$.post("../../Checkout/AddCheckout/",{content:getHtmlTable},function(data){	
+				window.location.href = "../../Home";
+			}) 	
+		})
+	});
+	
 </script>

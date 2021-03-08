@@ -7,8 +7,10 @@
 			<p class="cl mb-0">Ho Huu Vinh</p>
 			<p class="cl mb-0" style="font-size: 80%;opacity: 0.7">Administrator</p>
 		</div>
-		<div class="bg2 float-right text-center" style="width: 40px;height: 100%;">
-			<i class="fa fa-power-off cl" aria-hidden="true" style="font-size: 130%;line-height: 39px"></i>
-		</div>
+		<a href="/pos-mvc/Account/Logout">
+			<div class="bg2 float-right text-center" style="width: 40px;height: 100%;">
+				<i class="fa fa-power-off cl" aria-hidden="true" style="font-size: 130%;line-height: 39px"></i>
+			</div>
+		</a>
 	</div>
 </div>

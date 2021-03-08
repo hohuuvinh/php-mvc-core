@@ -46,7 +46,7 @@
 									$type = "Drink";
 								}
 								echo '<tr>
-								<th><img src="../public/images/product/'.$row["image"].'" width="80px" height="50px"> </th>
+								<th><img src="../public/images/product/'.$row["image"].'" width="80px" height="50px;" style="object-fit: cover;"> </th>
 								<td style="width: 350px">'.$row["name"].' </td>
 								<td>'.$row["price"].'$</td>
 								<td>'.$type.'</td>

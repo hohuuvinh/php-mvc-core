@@ -2,18 +2,27 @@
 
 class System extends Controller{
 	function Index(){
-		$GetModel= $this->model("tbl_theme");
-		$GetTheme = $GetModel ->GetTheme();
 
-		$GetModel2= $this->model("tbl_voucher");
-		$Voucher = $GetModel2 ->Voucher();
+		if(isset($_SESSION["username"])){
+			$GetModel= $this->model("tbl_theme");
+			$GetTheme = $GetModel ->GetTheme();
 
-		$GetModel3= $this->model("tbl_fee");
-		$GetFee = $GetModel3 ->GetFee();
+			$GetModel2= $this->model("tbl_voucher");
+			$Voucher = $GetModel2 ->Voucher();
 
-		$GetModel4= $this->model("tbl_discount");
-		$GetDiscount = $GetModel4 ->GetDiscount();
-		$this->view("master",["Page"=>"system","GetTheme"=>$GetTheme,"Voucher"=>$Voucher,"GetFee"=>$GetFee,"GetDiscount"=>$GetDiscount]);
+			$GetModel3= $this->model("tbl_fee");
+			$GetFee = $GetModel3 ->GetFee();
+
+			$GetModel4= $this->model("tbl_discount");
+			$GetDiscount = $GetModel4 ->GetDiscount();
+
+			$GetModel5= $this->model("tbl_table");
+			$Table = $GetModel5 ->Table();
+			$this->view("master",["Page"=>"system","GetTheme"=>$GetTheme,"Voucher"=>$Voucher,"GetFee"=>$GetFee,"GetDiscount"=>$GetDiscount,"Table"=>$Table]);
+		}else{
+			header("Location: ../Account/Login");
+		}
+		
 	}
 
 	function ChangeColor(){

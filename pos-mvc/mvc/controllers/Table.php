@@ -21,5 +21,28 @@ class Table extends Controller{
 		echo "ok";
 	}
 
+	function EditTable(){
+		$id = $_POST["idTable"];
+		$number = $_POST["numberTable"];
+		$type = $_POST["typeTable"];
+		$GetModel= $this->model("tbl_table");
+		$EditTable = $GetModel ->EditTable($id,$number,$type);
+		header( "Location: ../System/Index" );
+	}
+
+	function DeleteTable($id){
+		$GetModel= $this->model("tbl_table");
+		$DeleteTable = $GetModel ->DeleteTable($id);
+		header( "Location: ../../System/Index" );
+	}
+
+	function AddTable(){
+		$number = $_POST["numberTable"];
+		$type = $_POST["typeTable"];
+		$GetModel= $this->model("tbl_table");
+		$AddTable = $GetModel ->AddTable($number,$type);
+		header( "Location: ../System/Index" );
+	}
+
 }
 ?>

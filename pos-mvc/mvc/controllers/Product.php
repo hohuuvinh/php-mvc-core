@@ -10,21 +10,32 @@ class Product extends Controller{
 	}
 
 	function ProductsManage(){
-		$GetModel= $this->model("tbl_theme");
-		$GetTheme = $GetModel ->GetTheme();
-		$GetModel= $this->model("tbl_product");
-		$ProductsManage = $GetModel ->ProductsManage();
-		$this->view("master",["Page"=>"products","ProductsManage"=>$ProductsManage,"GetTheme"=>$GetTheme]);
+		if(isset($_SESSION["username"])){
+			$GetModel= $this->model("tbl_theme");
+			$GetTheme = $GetModel ->GetTheme();
+			$GetModel= $this->model("tbl_product");
+			$ProductsManage = $GetModel ->ProductsManage();
+			$this->view("master",["Page"=>"products","ProductsManage"=>$ProductsManage,"GetTheme"=>$GetTheme]);
+		}else{
+			header("Location: ../Account/Login");
+		}
+
+		
 	}
 
-	function EditProduct(){
-		$this->view("master",["Page"=>"edit-product"]);
-	}
+	// function EditProduct(){
+	// 	$this->view("master",["Page"=>"edit-product"]);
+	// }
 
 	function GetAddProduct(){
-		$GetModel= $this->model("tbl_theme");
-		$GetTheme = $GetModel ->GetTheme();
-		$this->view("master",["Page"=>"add-product","GetTheme"=>$GetTheme]);
+		if(isset($_SESSION["username"])){
+			$GetModel= $this->model("tbl_theme");
+			$GetTheme = $GetModel ->GetTheme();
+			$this->view("master",["Page"=>"add-product","GetTheme"=>$GetTheme]);
+		}else{
+			header("Location: ../Account/Login");
+		}
+		
 	}
 
 	function SetAddProduct(){
@@ -64,13 +75,16 @@ class Product extends Controller{
 	}
 	
 	function GetEditProduct($id){
-		$GetModel= $this->model("tbl_theme");
-		$GetTheme = $GetModel ->GetTheme();
+		if(isset($_SESSION["username"])){
+			$GetModel= $this->model("tbl_theme");
+			$GetTheme = $GetModel ->GetTheme();
+			$GetModel= $this->model("tbl_product");
+			$EditProduct = $GetModel ->GetEditProduct($id);
+			$this->view("master",["Page"=>"edit-product","product"=>$EditProduct,"GetTheme"=>$GetTheme]);
+		}else{
+			header("Location: ../Account/Login");
+		}
 		
-		$GetModel= $this->model("tbl_product");
-		$EditProduct = $GetModel ->GetEditProduct($id);
-
-		$this->view("master",["Page"=>"edit-product","product"=>$EditProduct,"GetTheme"=>$GetTheme]);
 	}
 
 	function SetEditProduct(){
